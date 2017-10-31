@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html class="justtest">
+	<head>
+		<title>blogpage</title>
+		<style type="text/css">
+			body, div, ul, li{
+				margin:0; padding:0;font-style: normal;
+				font:12px/22px "\5B8B\4F53",Arial, Helvetica, sans-serif
+			}
+			div#indexhead{
+				width:100%; height:100px;background:#99cc99;margin:0 auto
+			}
+			div#indexhead h1,h2,h3,h4,h5,h6 {
+				display:inline-block;margin: auto;height:100px;line-height:100px
+			}
+			ol, ul ,li{ list-style:none }
+			body{ color:#003300;background:#99cc99; text-align:center }
+			a{color:#003300;text-decoration:none}
+			.clear{clear:both;height:1px;width:100%; overflow:hidden; margin-top:-1px}
+			a:hover{color:#BA2636}
+
+			ul#nav{ width:100%; height:40px; background:#cc99cc;margin:0 auto}
+			ul#nav li{display:inline; height:40px}
+			ul#nav li a{
+				display:inline-block; padding:0 20px; height:40px; line-height:40px;
+				color:#993333; font-family:"\5FAE\8F6F\96C5\9ED1"; font-size:16px
+			}
+			ul#nav li a:hover{background:#0095BB} 
+		</style>
+		<script type="text/javascript">
+			function showThisAppHtml(ajaxid, appname)
+			{
+				if (window.XMLHttpRequest)
+				{
+					// IE7+, Firefox, Chrome, Opera, Safari 浏览器执行的代码
+					xmlhttp=new XMLHttpRequest();
+				}
+				else
+				{    
+					//IE6, IE5 浏览器执行的代码
+					xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlhttp.onreadystatechange=function()
+				{
+					if (xmlhttp.readyState==4 && xmlhttp.status==200)
+					{
+						document.getElementById(ajaxid).innerHTML=xmlhttp.responseText;
+					}
+				}
+				xmlhttp.open("GET",appname,true);
+				xmlhttp.send();
+			}
+		</script>
+	</head>
+	<body>
+		<div id="main">
+			<div id="indexhead" >
+				<h1>Welcome to my page</h1>
+			</div>
+			<div class="menubar">
+				<div class="appnamelist">
+				<ul id="nav">
+					<li id="a" class="appname"><a onclick="showThisAppHtml('blogIndexAjax', '/blog')">myblog</a></li>
+					<li id="b" class="appname"><a onclick="showThisAppHtml('blogIndexAjax', '/myshop')">myshop</a></li>
+					<li id="c" class="appname"><a onclick="showThisAppHtml('blogIndexAjax', '/myinfo')">myinfo</a></li>
+					<li id="d" class="appname"><a onclick="showThisAppHtml('blogIndexAjax', '/mycode')">mycode</a></li>
+					<li id="e" class="appname"><a onclick="showThisAppHtml('blogIndexAjax', '/mymusic')">mymusic</a></li>
+				</ul>
+				</div>
+			</div>
+			<!--
+			<div>
+				<div>
+					<p id="myblogbutton" onclick="showThisAp()">myblog</p>
+				</div>
+				<div>
+					<p id="myshopbutton" onclick="showThisAp()">myshop</p>
+				</div>
+				<div>
+					<p id="myinfobutton" onclick="showThisAp()">myinfo</p>
+				</div>
+				<div>
+					<p id="mycodebutton" onclick="showThisAp()">mycode</p>
+				</div>
+				<div>
+					<p id="mymusicbutton" onclick="showThisAp()">mymusic</p>
+				</div>
+			</div>
+			-->
+		</div>
+		<div id="main2"><p id="blogIndexAjax"></p></div>
+	</body>
+</html>

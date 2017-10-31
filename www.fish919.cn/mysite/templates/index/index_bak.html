@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="justtest">
+	<head>
+		<title>blogpage</title>
+		<style type="text/css">
+			.justtest{
+				margin-top:0px;
+			}
+			html{
+				margin-top:0px;
+			}
+			li{
+				list-style-type:none
+			}
+			body{
+				margin-top:0px;
+				margin-right: 0px;
+				margin-bottom: 0px;
+				margin-left: 0px;
+				padding:0;
+				border:0;
+			}
+			#main2{
+				margin-top:0;
+				margin-left:0;
+				margin-right:0;
+			}
+			#main{
+				margin:0 aut0;
+			}
+
+			#indexhead{
+				position: relative;
+				margin-top:0;
+				margin-left:0;
+				margin-right:0;
+				border:0;
+				padding:0;
+				height:120px;
+				background-color:#cccccc;
+			}
+			#welcome{
+				border:0;
+				padding:0;
+				position:center;
+				margin:0 auto;
+			}
+			.appnamelist{
+				position: relative;
+				height:40px;
+				margin-left:auto;
+				margin-right:auto;
+				margin-top:auto;
+				margin-bottom:0;
+				bottom:0px;
+				width:1000px;
+				background:#666666;
+			}
+			.appname{
+				position: relative;
+				float:left;
+				margin-top:0;
+				border:0;
+				padding:0;
+				width:180px;
+				background:#666666;
+			}
+			.menubar{
+				height:40px;
+				margin-left:0px;
+				margin-right:0px;
+				margin-top:0px;
+				margin-bottom:0px;
+				background:#cccccc;
+			}
+			ul#nav{
+				width:100%; height:40px; background:#00A2CA;margin:0 auto
+			}
+			ul#nav li a:hover{background:#cccccc}
+		</style>
+		<script type="text/javascript">
+			function showThisAp()
+			{
+				if (window.XMLHttpRequest)
+				{
+					// IE7+, Firefox, Chrome, Opera, Safari 浏览器执行的代码
+					xmlhttp=new XMLHttpRequest();
+				}
+				else
+				{    
+					//IE6, IE5 浏览器执行的代码
+					xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlhttp.onreadystatechange=function()
+				{
+					if (xmlhttp.readyState==4 && xmlhttp.status==200)
+					{
+						document.getElementById('blogIndexAjax').innerHTML=xmlhttp.responseText;
+					}
+				}
+				xmlhttp.open("GET","/blog/",true);
+				xmlhttp.send();
+			}
+		</script>
+	</head>
+	<body>
+		<div id="main">
+			<div id="indexhead" >
+		<!--		<h2>你好，欢迎来到我的个人网站</h2>  -->
+				<h2 id="welcome">Welcome</h2>
+			</div>
+			<div class="menubar">
+				<div class="appnamelist">
+				<ul id="nav">
+					<li id="a" class="appname"><a href="#">myblog</a></li>
+					<li id="b" class="appname"><a href="#">myshop</a></li>
+					<li id="c" class="appname"><a href="#">myinfo</a></li>
+					<li id="d" class="appname"><a href="#">mycode</a></li>
+					<li id="e" class="appname"><a href="#">mymusic</a></li>
+				</ul>
+				</div>
+			</div>
+			<!--
+			<div>
+				<div>
+					<p id="myblogbutton" onclick="showThisAp()">myblog</p>
+				</div>
+				<div>
+					<p id="myshopbutton" onclick="showThisAp()">myshop</p>
+				</div>
+				<div>
+					<p id="myinfobutton" onclick="showThisAp()">myinfo</p>
+				</div>
+				<div>
+					<p id="mycodebutton" onclick="showThisAp()">mycode</p>
+				</div>
+				<div>
+					<p id="mymusicbutton" onclick="showThisAp()">mymusic</p>
+				</div>
+			</div>
+			-->
+			<div><p id="blogIndexAjax">this is a position</p></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>blogpage</title>
+	</head>
+	<body>
+		<h2>This is blog page</h2>
+		{% for post in post_list %}
+			<article class="post post-{{ post.pk }}">
+				<h1 class="entry-title">
+					<a href="single.html">{{ post.title }}</a>
+				</h1>
+			</article>
+		{% empty %}
+			<div class="no-post">暂时还没有发布的文章！</div>
+		{% endfor %}
+	</body>
+</html>
